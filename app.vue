@@ -48,10 +48,12 @@
           label="Passwort eingeben"
           type="password"
           :errorMessage="
-            getErrorMessage({
-              key: 'password',
-              message: `Bitte geben Sie Ihr Passwort ein.`,
-            })
+            loginAttempt !== 1
+              ? getErrorMessage({
+                  key: 'password',
+                  message: `Bitte geben Sie Ihr Passwort ein.`,
+                })
+              : 'Bitte geben Sie Ihr Passwort ein.'
           "
           v-model="v$.password.$model"
         />
